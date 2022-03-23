@@ -9,11 +9,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const mongodb = await getDatabase();
 
   const games = await mongodb.db().collection("games").find().toArray();
-  const gamesResult = JSON.parse(JSON.stringify(games));
+  const data = JSON.parse(JSON.stringify(games));
 
   return { 
     props: { 
-      games: gamesResult,
+      games: data,
     }
   };
 }

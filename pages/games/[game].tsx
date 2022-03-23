@@ -10,11 +10,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     .collection("games")
     .find({ slug: context.params.game })
     .toArray();
-  const gamesResult = JSON.parse(JSON.stringify(games));
+  const data = JSON.parse(JSON.stringify(games));
 
   return {
     props: {
-      games: gamesResult,
+      games: data,
     },
   };
 };
